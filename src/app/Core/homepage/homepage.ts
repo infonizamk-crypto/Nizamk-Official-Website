@@ -18,8 +18,12 @@ interface ServiceTab {
   templateUrl: './homepage.html',
   styleUrl: './homepage.css',
 })
+
+
 export class Homepage implements AfterViewInit, OnDestroy{
-// حالة الـ Header Dynamic Theme
+
+  isMobileMenuOpen = false;
+  // حالة الـ Header Dynamic Theme
   headerTheme: 'dark' | 'light' = 'dark';
   private observer!: IntersectionObserver;
 

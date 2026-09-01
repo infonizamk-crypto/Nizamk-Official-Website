@@ -1,14 +1,19 @@
 import { Routes } from '@angular/router';
 import { Homepage } from './Core/homepage/homepage';
+import { Workpage } from './Core/workpage/workpage';
 
 export const routes: Routes = [
     {
         path: '', 
-         redirectTo: 'nizamk/homepage', 
+         redirectTo: 'home', 
          pathMatch: 'full' 
     },
     {
-        path: 'nizamk/homepage',
+        path: 'home',
         component: Homepage
     },
+    {
+        path: 'home/work',
+        component: Workpage
+    }
 ];
