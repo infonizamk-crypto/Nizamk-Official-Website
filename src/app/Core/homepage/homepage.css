@@ -1,0 +1,695 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:host {
+  --bg-dark: #191918;
+  --bg-light: #f5f2eb;
+  --text-dark: #191918;
+  --text-light: #f5f2eb;
+  --accent-gold: #c27a2b;
+  --accent-gold-hover: #a3621d;
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(25, 25, 24, 0.12);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  display: block;
+}
+
+.site-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header Sticky Transformation Styles */
+/* Header Fixed لضمان ثباته فوق كل الـ Sections أثناء الـ Scroll */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4rem;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* إضافة Padding لأول Section (Hero) عشان الـ Header ما يغطيش على كلام الـ Hero */
+.hero-section {
+  padding-top: 8rem !important;
+}
+
+.navbar.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.navbar.dark .nav-links a {
+  color: var(--text-light);
+}
+
+.navbar.dark .logo-circle {
+  border-color: var(--text-light);
+}
+
+.navbar.light {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.navbar.light .nav-links a {
+  color: var(--text-dark);
+}
+
+.navbar.light .logo-circle {
+  border-color: var(--text-dark);
+}
+
+/* Header شفاف وثابت أثناء الـ Scroll */
+.navbar.transparent-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  box-sizing: border-box;
+  
+  /* خلفية شفافة تماماً */
+  background-color: transparent;
+  
+  /* خاصية دمج الألوان الذكية */
+  mix-blend-mode: difference;
+  
+  /* جعل جميع النصوص والـ Elements باللون الأبيض بصفة أساسية */
+  /* الـ blend mode هيعكس الأبيض لأسود لما يمر فوق خلفية بيضاء */
+  color: #ffffff;
+}
+
+/* ضبط ألوان العناصر داخل الـ Header لتتفاعل مع الـ Mix Blend Mode */
+.transparent-header .nav-links a {
+  color: #ffffff;
+}
+
+.transparent-header .logo-circle {
+  border-color: #ffffff;
+}
+
+.transparent-header .brand-subtitle {
+  color: #cccccc;
+}
+
+/* زرار Get a Quote */
+.transparent-header .btn-primary {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border: none;
+}
+
+/* Core Layouts & Themes */
+.dark-bg {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.light-bg {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.serif-italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #8c857b;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.section-label.gold {
+  color: var(--accent-gold);
+}
+
+.section-heading {
+  font-size: 3.25rem;
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Header Details */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.logo-text .highlight {
+  color: var(--accent-gold);
+}
+
+.brand-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: #777;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent-gold);
+  color: #fff !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.btn-solid {
+  background-color: var(--accent-gold);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-solid:hover {
+  background-color: var(--accent-gold-hover);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 5rem 4rem 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  min-height: 80vh;
+}
+
+.badge-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  padding: 0.3rem 0.6rem;
+  letter-spacing: 1.5px;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 2rem 0;
+}
+
+.hero-description {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+  max-width: 480px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-graphic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graphic-card {
+  width: 320px;
+  height: 320px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.dodo-logo-text {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #191918;
+  display: block;
+}
+
+.dodo-logo-text .accent-a {
+  color: var(--accent-gold);
+}
+
+.dodo-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: #666;
+  display: block;
+  margin-top: 4px;
+}
+
+.hero-stats {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border-dark);
+  margin-top: 4rem;
+  padding: 2.5rem 0;
+}
+
+.stat-item h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--accent-gold);
+}
+
+.stat-item p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: #8c857b;
+}
+
+/* Services Section */
+.services-section {
+  padding: 6rem 4rem;
+}
+
+.tab-headers {
+  display: flex;
+  border-bottom: 1px solid var(--border-light);
+  margin: 3rem 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 2rem 1rem 0;
+  margin-right: 2rem;
+  font-size: 1rem;
+  color: #777;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab-btn .tab-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  margin-right: 0.4rem;
+}
+
+.tab-btn.active {
+  color: var(--text-dark);
+  font-weight: 600;
+  border-bottom-color: var(--accent-gold);
+}
+
+.tab-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.sub-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.service-body {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.link-arrow {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.capabilities-card {
+  padding: 2.5rem;
+  border-radius: 2px;
+}
+
+.card-header-sm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+}
+
+.capabilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.capabilities-list li {
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.capabilities-list .bullet {
+  color: var(--accent-gold);
+  margin-right: 0.5rem;
+}
+
+/* About Section */
+.about-section {
+  padding: 6rem 4rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.dark-theme-heading {
+  color: #fff;
+}
+
+.text-body-dark {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+}
+
+.text-body-dark.text-muted {
+  color: #a0988e;
+}
+
+.about-metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.metric-box {
+  border: 1px solid var(--border-dark);
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.metric-box h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2rem;
+  color: var(--accent-gold);
+  font-weight: 400;
+}
+
+.metric-box p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: #8c857b;
+  margin-top: 0.25rem;
+}
+
+/* Why Choose Us Grid */
+.why-us-section {
+  padding: 6rem 4rem;
+}
+
+.features-2x2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 3rem;
+  border: 1px solid var(--border-light);
+}
+
+.feature-cell {
+  padding: 3rem;
+  position: relative;
+}
+
+.border-right {
+  border-right: 1px solid var(--border-light);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.cell-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.feature-cell h4 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.feature-cell p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Technologies Section */
+.tech-section {
+  padding: 5rem 4rem;
+  border-top: 1px solid var(--border-dark);
+}
+
+.tech-container .center {
+  text-align: center;
+}
+
+.tech-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.tech-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #8c857b;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 0.5rem;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tech-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  border: 1px solid var(--border-dark);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+  color: var(--accent-gold);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 6rem 4rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-desc {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 440px;
+}
+
+.detail-row {
+  margin-bottom: 1.5rem;
+}
+
+.detail-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.detail-val {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.contact-card {
+  padding: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #111110;
+  border: 1px solid var(--border-dark);
+  color: #fff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: 1px solid var(--accent-gold);
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--border-dark);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: #8c857b;
+  text-decoration: none;
+}
+
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1.5rem 2rem;
+  }
+  .hero-section,
+  .tab-content-grid,
+  .about-grid,
+  .features-2x2-grid,
+  .tech-columns,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .border-right {
+    border-right: none;
+  }
+}

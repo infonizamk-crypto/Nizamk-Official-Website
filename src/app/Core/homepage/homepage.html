@@ -1,0 +1,283 @@
+<div class="site-wrapper">
+  
+ <header class="navbar transparent-header">
+  <div class="brand">
+    <div class="logo-circle">
+      <span class="logo-text">niz<span class="highlight">a</span>mk</span>
+    </div>
+    <span class="brand-subtitle">PROFESSIONAL SOFTWARE</span>
+  </div>
+  <nav class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn-primary">Get a Quote</a>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero-section dark-bg" data-theme="dark">
+    <div class="hero-content">
+      <span class="badge-pill">EST. IN PRECISION •</span>
+      <h1 class="hero-title">
+        We build <br />
+        <span class="serif-italic">software</span> <br />
+        that lasts.
+      </h1>
+      <p class="hero-description">
+        From elegant websites to enterprise ERP systems and embedded firmware — 
+        nizamk engineers solutions with depth, precision, and longevity.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-solid">Explore Our Services</a>
+        <a href="#contact" class="btn-outline">Start a Project</a>
+      </div>
+    </div>
+    
+    <div class="hero-graphic">
+      <img src="slide1.png" alt="nizamk logo" class="hero-logo" />
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <h3>50+</h3>
+        <p>PROJECTS DELIVERED</p>
+      </div>
+      <div class="stat-item">
+        <h3>3</h3>
+        <p>CORE DISCIPLINES</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>CLIENT SATISFACTION</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section light-bg" data-theme="light">
+    <div class="section-label">WHAT WE DO</div>
+    <h2 class="section-heading">
+      Three disciplines.<br />
+      <span class="serif-italic">One standard.</span>
+    </h2>
+
+    <div class="tab-headers">
+      <button 
+        *ngFor="let tab of services" 
+        [class.active]="activeTabId === tab.id" 
+        (click)="selectTab(tab.id)"
+        class="tab-btn">
+        <span class="tab-num">{{ tab.number }}</span> {{ tab.title }}
+      </button>
+    </div>
+
+    <div class="tab-content-grid">
+      <div class="service-info">
+        <span class="sub-label">{{ currentService.subtitle }}</span>
+        <p class="service-body">{{ currentService.description }}</p>
+        <a href="#contact" class="link-arrow">Discuss your project &rarr;</a>
+      </div>
+
+      <div class="capabilities-card dark-bg">
+        <div class="card-header-sm">CAPABILITIES</div>
+        <ul class="capabilities-list">
+          <li *ngFor="let item of currentService.capabilities">
+            <span class="bullet">•</span> {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section dark-bg" data-theme="dark">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="section-label gold">ABOUT NIZAMK</span>
+        <h2 class="section-heading dark-theme-heading">
+          Built on the belief that <br />
+          <span class="serif-italic">good software</span> outlasts <br />
+          trends.
+        </h2>
+      </div>
+      <div class="about-right">
+        <p class="text-body-dark">
+          nizamk is a professional software company with deep roots in three domains — web development, enterprise resource planning, and embedded systems engineering. We work with businesses that need software that performs under real-world conditions, not just in demos.
+        </p>
+        <p class="text-body-dark text-muted">
+          Our name carries the dodo as a mark of remembrance and rarity — not of extinction, but of uniqueness. We build systems that are built to endure, thoughtfully designed and carefully maintained.
+        </p>
+        <div class="about-metrics">
+          <div class="metric-box">
+            <h3>2026</h3>
+            <p>FOUNDED</p>
+          </div>
+          <div class="metric-box">
+            <h3>10+</h3>
+            <p>PROJECTS</p>
+          </div>
+          <div class="metric-box">
+            <h3>2+</h3>
+            <p>INDUSTRIES</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="why-us-section light-bg" data-theme="light">
+    <span class="section-label">WHY CHOOSE US</span>
+    <h2 class="section-heading">
+      Precision without <br />
+      <span class="serif-italic">compromise.</span>
+    </h2>
+
+    <div class="features-2x2-grid">
+      <div class="feature-cell border-right border-bottom">
+        <span class="cell-num">01</span>
+        <h4>Full-stack depth</h4>
+        <p>We cover the stack from bare-metal firmware to cloud infrastructure and polished front-ends. No handoffs, no gaps.</p>
+      </div>
+      <div class="feature-cell border-bottom">
+        <span class="cell-num">02</span>
+        <h4>Engineered for longevity</h4>
+        <p>Code that ships is the start. We write for maintainability, document what matters, and structure systems that teams can grow with.</p>
+      </div>
+      <div class="feature-cell border-right">
+        <span class="cell-num">03</span>
+        <h4>Process transparency</h4>
+        <p>Weekly check-ins, shared project boards, and direct access to the engineers building your system — not just a project manager.</p>
+      </div>
+      <div class="feature-cell">
+        <span class="cell-num">04</span>
+        <h4>Domain fluency</h4>
+        <p>We speak your industry's language. From manufacturing floors to financial back-offices, we learn your context before writing a line.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="tech-section dark-bg" data-theme="dark">
+    <div class="tech-container">
+      <div class="section-label center gold">TECHNOLOGIES WE WORK WITH</div>
+      <div class="tech-columns">
+        <div class="tech-col">
+          <h5 class="tech-cat">WEB</h5>
+          <div class="tag-group">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="tech-col">
+          <h5 class="tech-cat">ERP</h5>
+          <div class="tag-group">
+            <span class="tech-tag">Odoo</span>
+            <span class="tech-tag">Custom ERP</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+        <div class="tech-col">
+          <h5 class="tech-cat">EMBEDDED</h5>
+          <div class="tag-group">
+            <span class="tech-tag">C / C++</span>
+            <span class="tech-tag">FreeRTOS</span>
+            <span class="tech-tag">STM32</span>
+            <span class="tech-tag">ESP32</span>
+            <span class="tech-tag">MQTT</span>
+            <span class="tech-tag">Modbus</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section light-bg" data-theme="light">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-label">GET IN TOUCH</span>
+        <h2 class="section-heading">
+          Let's build <br />
+          <span class="serif-italic">something great.</span>
+        </h2>
+        <p class="contact-desc">
+          Tell us about your project. We'll respond within one business day with an honest assessment and a path forward.
+        </p>
+
+        <div class="contact-details">
+          <div class="detail-row">
+            <span class="detail-label">EMAIL</span>
+            <span class="detail-val">info@nizamk.com</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">RESPONSE TIME</span>
+            <span class="detail-val">Within 12 hours</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">LOCATION</span>
+            <span class="detail-val">Remote — worldwide</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card dark-bg">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>NAME</label>
+            <input type="text" [(ngModel)]="contactData.name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>EMAIL</label>
+            <input type="email" [(ngModel)]="contactData.email" name="email" placeholder="you@company.com" required />
+          </div>
+          <div class="form-group">
+            <label>SERVICE NEEDED</label>
+            <select [(ngModel)]="contactData.service" name="service">
+              <option value="" disabled selected>Select a service</option>
+              <option value="web">Web Development</option>
+              <option value="erp">ERP Systems</option>
+              <option value="embedded">Embedded Systems</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>PROJECT BRIEF</label>
+            <textarea [(ngModel)]="contactData.brief" name="brief" rows="4" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn-solid btn-full">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark-bg">
+    <div class="footer-container">
+      <div class="brand">
+        <div class="logo-circle">
+          <span class="logo-text">niz<span class="highlight">a</span>mk</span>
+        </div>
+        <span class="brand-subtitle">PROFESSIONAL SOFTWARE</span>
+      </div>
+      <div class="footer-nav">
+        <a href="#services">SERVICES</a>
+        <a href="#about">ABOUT</a>
+        <a href="#work">WORK</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 nizamk. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</div>
